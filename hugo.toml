@@ -1,0 +1,4 @@
+baseURL = 'https://xxie7611-gif.github.io/xiexinwei/blog/'
+locale = 'en-us'
+title = '宏域'
+theme="PaperMod"
