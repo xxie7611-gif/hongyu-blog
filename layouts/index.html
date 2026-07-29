@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<section class="hero">
+    <p class="hero-label">HONGYU · 宏域</p>
+
+    <h1>探索技术，也记录成长</h1>
+
+    <p class="hero-description">
+        分享编程、AI 应用、数字创作、英语学习，以及实践过程中的思考与经验。
+    </p>
+
+    <div class="hero-buttons">
+        <a class="primary-button" href="{{ "posts/" | relURL }}">
+            阅读文章
+        </a>
+
+        <a class="secondary-button" href="{{ "about/" | relURL }}">
+            关于宏域
+        </a>
+    </div>
+</section>
+
+<section class="home-section">
+    <div class="section-heading">
+        <h2>最新文章</h2>
+        <a href="{{ "posts/" | relURL }}">查看全部 →</a>
+    </div>
+
+    <div class="article-grid">
+        {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+        <article class="article-card">
+            <p class="article-date">
+                {{ .Date.Format "2006-01-02" }}
+            </p>
+
+            <h3>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+
+            <p>{{ .Summary | plainify | truncate 100 }}</p>
+
+            <a class="read-more" href="{{ .RelPermalink }}">
+                阅读全文 →
+            </a>
+        </article>
+        {{ end }}
+    </div>
+</section>
+
+<section class="home-section">
+    <h2>探索方向</h2>
+
+    <div class="topic-grid">
+        <div class="topic-card">
+            <span>💻</span>
+            <h3>编程与开发</h3>
+            <p>记录项目实践、网页开发和学习过程。</p>
+        </div>
+
+        <div class="topic-card">
+            <span>🤖</span>
+            <h3>AI 与本地部署</h3>
+            <p>探索 ComfyUI、生成式 AI 和模型工作流。</p>
+        </div>
+
+        <div class="topic-card">
+            <span>🎨</span>
+            <h3>数字创作</h3>
+            <p>关注数字媒体、视觉设计和内容制作。</p>
+        </div>
+
+        <div class="topic-card">
+            <span>🌍</span>
+            <h3>英语学习</h3>
+            <p>整理听力、翻译和长期学习记录。</p>
+        </div>
+    </div>
+</section>
+
+{{ end }}

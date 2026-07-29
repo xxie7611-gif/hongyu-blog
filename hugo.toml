@@ -1,4 +1,4 @@
-baseURL = 'https://xxie7611-gif.github.io/xiexinwei/blog/'
-locale = 'en-us'
+baseURL = 'https://xxie7611-gif.github.io/hongyu-blog/'
+languageCode = 'zh-cn'
 title = '宏域'
-theme="PaperMod"
+theme = 'PaperMod'
