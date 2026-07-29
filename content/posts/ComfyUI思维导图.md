@@ -11,4 +11,4 @@ Tags:
 
 这是我整理的 ComfyUI 学习思维导图：
 
-[下载 ComfyUI 思维导图 (.xmind)](/files/comfyui-mindmap.xmind)
+[下载ComfyUI思维导图](/hongyu-blog/files/comfyui-mindmap.xmind)
