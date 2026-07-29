@@ -2,3 +2,21 @@ baseURL = 'https://xxie7611-gif.github.io/hongyu-blog/'
 languageCode = 'zh-cn'
 title = '宏域'
 theme = 'PaperMod'
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  
+  [menu]
+
+[[menu.main]]
+identifier = "categories"
+name = "分类"
+url = "/categories/"
+weight = 10
+
+[[menu.main]]
+identifier = "tags"
+name = "标签"
+url = "/tags/"
+weight = 20
