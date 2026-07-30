@@ -1,4 +1,4 @@
-baseURL = 'https://xxie7611-gif.github.io/hongyu-blog/'
+baseURL = 'https://hongyu.ac.cn/'
 languageCode = 'zh-cn'
 title = '宏域'
 theme = 'PaperMod'
