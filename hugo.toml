@@ -3,11 +3,16 @@ languageCode = 'zh-cn'
 title = '宏域'
 theme = 'PaperMod'
 
+[params]
+  hideSummary = true
+  defaultTheme = "dark"
+  disableThemeToggle = true
+
 [taxonomies]
   category = "categories"
   tag = "tags"
-  
-  [menu]
+
+[menu]
 
 [[menu.main]]
 identifier = "categories"
@@ -20,7 +25,3 @@ identifier = "tags"
 name = "标签"
 url = "/tags/"
 weight = 20
-
-[params]
-defaultTheme = "dark"
-disableThemeToggle = true
