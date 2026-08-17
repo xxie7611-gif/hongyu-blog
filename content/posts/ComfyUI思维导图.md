@@ -11,4 +11,5 @@ Tags:
 
 这是我整理的 ComfyUI 学习思维导图：
 
-[下载ComfyUI思维导图](/files/comfyui-mindmap(4).xmind)
+[下载ComfyUI思维导图](https://wwbox.lanzoul.com/imvQw42yy4cb)
+密码:123
