@@ -13,4 +13,6 @@ draf: false
 
 [下载小程序](https://wwbox.lanzoul.com/iXOx1436u75g)
 
+下载后直接选择自动安装，Windows一启动就自动执行
+
 密码:123
