@@ -181,6 +181,46 @@ body {
     font-weight: 500;
 }
 
+.home-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.pagination-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 112px;
+    padding: 11px 18px;
+    border: 1px solid var(--apple-border);
+    border-radius: 999px;
+    background: var(--apple-card);
+    color: var(--apple-blue);
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.pagination-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-button.is-disabled {
+    color: var(--apple-secondary);
+    cursor: default;
+    opacity: 0.45;
+}
+
+.pagination-status {
+    color: var(--apple-secondary);
+    font-size: 15px;
+}
+
 .topic-card span {
     display: inline-block;
     margin-bottom: 18px;
@@ -244,6 +284,19 @@ body {
     .topic-card {
         border-radius: 22px;
         padding: 24px;
+    }
+
+    .home-pagination {
+        gap: 10px;
+    }
+
+    .pagination-button {
+        min-width: 0;
+        padding: 10px 14px;
+    }
+
+    .pagination-status {
+        font-size: 13px;
     }
 }
 

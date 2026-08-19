@@ -26,8 +26,11 @@
         <a href="{{ "posts/" | relURL }}">查看全部 →</a>
     </div>
 
+    {{ $posts := where .Site.RegularPages.ByDate.Reverse "Section" "posts" }}
+    {{ $paginator := .Paginate $posts 6 }}
+
     <div class="article-grid">
-        {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+        {{ range $paginator.Pages }}
         <article class="article-card">
             <p class="article-date">
                 {{ .Date.Format "2006-01-02" }}
@@ -44,6 +47,120 @@
         </article>
         {{ end }}
     </div>
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="home-pagination" aria-label="最新文章分页">
+        {{ if $paginator.HasPrev }}
+        <a class="pagination-button" href="{{ $paginator.Prev.URL }}" rel="prev">
+            ← 上一页
+        </a>
+        {{ else }}
+        <span class="pagination-button is-disabled" aria-disabled="true">
+            ← 上一页
+        </span>
+        {{ end }}
+
+        <span class="pagination-status">
+            第 {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} 页
+        </span>
+
+        {{ if $paginator.HasNext }}
+        <a class="pagination-button" href="{{ $paginator.Next.URL }}" rel="next">
+            下一页 →
+        </a>
+        {{ else }}
+        <span class="pagination-button is-disabled" aria-disabled="true">
+            下一页 →
+        </span>
+        {{ end }}
+    </nav>
+
+    <script>
+        (() => {
+            const storageKey = "home-pagination-scroll-position";
+
+            document.querySelectorAll(".home-pagination a").forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+                        return;
+                    }
+
+                    try {
+                        sessionStorage.setItem(storageKey, JSON.stringify({
+                            left: window.scrollX,
+                            top: window.scrollY,
+                            savedAt: Date.now()
+                        }));
+                    } catch (_) {
+                        // 浏览器禁用会话存储时，分页仍可正常使用。
+                    }
+                });
+            });
+
+            let savedPosition = null;
+
+            try {
+                savedPosition = JSON.parse(sessionStorage.getItem(storageKey));
+                sessionStorage.removeItem(storageKey);
+            } catch (_) {
+                savedPosition = null;
+            }
+
+            if (!savedPosition || Date.now() - savedPosition.savedAt > 30000) {
+                return;
+            }
+
+            const restorePosition = () => {
+                const requiredHeight = savedPosition.top + window.innerHeight;
+                const currentHeight = document.documentElement.scrollHeight;
+
+                if (currentHeight < requiredHeight) {
+                    document.documentElement.style.minHeight = `${Math.ceil(requiredHeight)}px`;
+                }
+
+                const root = document.documentElement;
+                const previousScrollBehavior = root.style.scrollBehavior;
+                root.style.scrollBehavior = "auto";
+                window.scrollTo(savedPosition.left, savedPosition.top);
+
+                requestAnimationFrame(() => {
+                    root.style.scrollBehavior = previousScrollBehavior;
+                });
+            };
+
+            window.addEventListener("pageshow", () => {
+                restorePosition();
+
+                const handleViewportChange = () => restorePosition();
+                const userInputEvents = ["wheel", "touchstart", "pointerdown", "keydown"];
+                let finalRestoreTimer;
+
+                const stopRestoring = () => {
+                    window.removeEventListener("resize", handleViewportChange);
+                    window.visualViewport?.removeEventListener("resize", handleViewportChange);
+                    userInputEvents.forEach((eventName) => {
+                        window.removeEventListener(eventName, stopRestoring);
+                    });
+
+                    if (finalRestoreTimer) {
+                        window.clearTimeout(finalRestoreTimer);
+                    }
+                };
+
+                window.addEventListener("resize", handleViewportChange);
+                window.visualViewport?.addEventListener("resize", handleViewportChange);
+                userInputEvents.forEach((eventName) => {
+                    window.addEventListener(eventName, stopRestoring, { passive: true });
+                });
+
+                finalRestoreTimer = window.setTimeout(() => {
+                    restorePosition();
+                    stopRestoring();
+                }, 1000);
+            }, { once: true });
+        })();
+    </script>
+    {{ end }}
 </section>
 
 <section class="home-section">
