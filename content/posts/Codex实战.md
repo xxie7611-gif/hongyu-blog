@@ -11,7 +11,7 @@ draf: false
 
 每小时自动换一次，壁纸库来自于bing每日壁纸
 
-[下载小程序](https://wwbox.lanzoul.com/iXOx1436u75g)
+[下载小程序](https://wwbox.lanzoul.com/b00oe44k8b)
 
 下载后直接选择自动安装，Windows一启动就自动执行
 
