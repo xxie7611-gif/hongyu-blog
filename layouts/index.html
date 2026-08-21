@@ -1,5 +1,22 @@
 {{ define "main" }}
 
+<script>
+    (() => {
+        const storageKey = "home-pagination-scroll-position";
+
+        try {
+            const savedPosition = JSON.parse(sessionStorage.getItem(storageKey));
+
+            if (savedPosition && Date.now() - savedPosition.savedAt <= 30000) {
+                document.documentElement.style.visibility = "hidden";
+                document.documentElement.dataset.homeScrollRestoring = "true";
+            }
+        } catch (_) {
+            // 浏览器禁用会话存储时，分页仍可正常显示。
+        }
+    })();
+</script>
+
 <section class="hero">
     <p class="hero-label">HONGYU · 宏域</p>
 
@@ -99,6 +116,14 @@
             });
 
             let savedPosition = null;
+            const root = document.documentElement;
+
+            const revealPage = () => {
+                if (root.dataset.homeScrollRestoring === "true") {
+                    root.style.visibility = "";
+                    delete root.dataset.homeScrollRestoring;
+                }
+            };
 
             try {
                 savedPosition = JSON.parse(sessionStorage.getItem(storageKey));
@@ -108,6 +133,7 @@
             }
 
             if (!savedPosition || Date.now() - savedPosition.savedAt > 30000) {
+                revealPage();
                 return;
             }
 
@@ -119,7 +145,6 @@
                     document.documentElement.style.minHeight = `${Math.ceil(requiredHeight)}px`;
                 }
 
-                const root = document.documentElement;
                 const previousScrollBehavior = root.style.scrollBehavior;
                 root.style.scrollBehavior = "auto";
                 window.scrollTo(savedPosition.left, savedPosition.top);
@@ -128,6 +153,13 @@
                     root.style.scrollBehavior = previousScrollBehavior;
                 });
             };
+
+            restorePosition();
+
+            requestAnimationFrame(() => {
+                restorePosition();
+                revealPage();
+            });
 
             window.addEventListener("pageshow", () => {
                 restorePosition();
