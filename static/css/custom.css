@@ -1,6 +1,7 @@
 :root {
     --apple-bg: #f5f5f7;
     --apple-card: rgba(255, 255, 255, 0.78);
+    --apple-section: #eceef2;
     --apple-text: #1d1d1f;
     --apple-secondary: #6e6e73;
     --apple-blue: #0071e3;
@@ -94,6 +95,27 @@ body {
 
 .home-section {
     margin-top: 90px;
+}
+
+.latest-content-area {
+    height: 780px;
+    padding: 32px;
+    border: 1px solid var(--apple-border);
+    border-radius: 32px;
+    background: var(--apple-section);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+}
+
+.latest-content-area .article-grid {
+    flex: 1;
+    align-content: start;
+}
+
+.latest-content-area .home-pagination {
+    flex-shrink: 0;
 }
 
 .section-heading {
@@ -240,6 +262,11 @@ a.pagination-button:hover {
 }
 
 @media (max-width: 900px) {
+    .latest-content-area {
+        height: auto;
+        min-height: 620px;
+    }
+
     .article-grid {
         grid-template-columns: 1fr;
     }
@@ -269,6 +296,12 @@ a.pagination-button:hover {
 
     .hero-description {
         font-size: 18px;
+    }
+
+    .latest-content-area {
+        min-height: 560px;
+        padding: 24px 18px;
+        border-radius: 24px;
     }
 
     .topic-grid {
@@ -304,6 +337,7 @@ a.pagination-button:hover {
     :root {
         --apple-bg: #000;
         --apple-card: rgba(28, 28, 30, 0.82);
+        --apple-section: #14161a;
         --apple-text: #f5f5f7;
         --apple-secondary: #a1a1a6;
         --apple-border: rgba(255, 255, 255, 0.1);
