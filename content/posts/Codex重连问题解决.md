@@ -29,7 +29,7 @@ setx HTTPS_PROXY "http://127.0.0.1:10808"
 找关键词mixed旁边的数字就是端口号
 
 # 另一种方法
-在C:\user\用户名\.codex文件里创建env文件
+在C:\user\用户名\ .codex文件里创建env文件
 
 ```
 HTTP_PROXY=http://127.0.0.1:10808
