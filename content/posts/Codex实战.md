@@ -8,7 +8,7 @@ draft: false
 
 这是我使用 Codex 通过 Vibe Coding 完成的一个自动更换壁纸小工具。
 
-程序每小时自动更换一次壁纸，壁纸来源于 Bing 每日壁纸。
+程序每小时自动更换一次壁纸，壁纸来源于 Wallhaven 每日壁纸。
 
 [下载小程序](https://wwbox.lanzoul.com/b00oe44k8b)
 
@@ -22,13 +22,13 @@ draft: false
 
 # 2. 实现思路
 
-程序会定时获取 Bing 每日壁纸，下载到本地，并自动设置为 Windows 桌面背景。
+程序会定时获取 Wallhaven 壁纸，下载到本地，并自动设置为 Windows 桌面背景。
 
 # 3. Codex 开发过程
 
 完整的 Vibe Coding 开发过程可以点击下面的链接查看。
 
-[Codex 开发过程](codex://threads/01a0155c-e4fb-7392-aa5b-5cc2c7fe53d8)
+[Codex 开发过程](codex://threads/01a028b8-a114-7bb1-8e9e-ee30e8bb0d09)
 
 # 4. 遇到的问题
 
