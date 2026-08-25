@@ -6,7 +6,7 @@ categories:
 draft: false
 ---
 
-这是我使用 Codex 通过 Vibe Coding 完成的一个自动更换壁纸小工具。
+这是我使用 Codex 通过 Vibe Coding 完成的一个 Wallhaven 自动更换壁纸小工具 (原 bing 自动更换壁纸小工具)。
 
 程序每小时自动更换一次壁纸，壁纸来源于 Wallhaven 每日壁纸。
 
