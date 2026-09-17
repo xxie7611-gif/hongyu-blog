@@ -333,8 +333,8 @@ a.pagination-button:hover {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
+:root[data-theme="dark"] {
+        color-scheme: dark;
         --apple-bg: #000;
         --apple-card: rgba(28, 28, 30, 0.82);
         --apple-section: #14161a;
@@ -343,17 +343,16 @@ a.pagination-button:hover {
         --apple-border: rgba(255, 255, 255, 0.1);
     }
 
-    body {
+    :root[data-theme="dark"] body {
         background:
             radial-gradient(circle at top left, rgba(0, 113, 227, 0.16), transparent 35%),
             var(--apple-bg);
     }
 
-    .secondary-button {
+    :root[data-theme="dark"] .secondary-button {
         background: rgba(28, 28, 30, 0.9);
     }
 
-    .header {
+    :root[data-theme="dark"] .header {
         background: rgba(0, 0, 0, 0.72);
     }
-}

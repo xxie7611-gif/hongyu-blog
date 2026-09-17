@@ -5,7 +5,7 @@ theme = 'PaperMod'
 
 [params]
   hideSummary = true
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   disableThemeToggle = true
 
 [taxonomies]
