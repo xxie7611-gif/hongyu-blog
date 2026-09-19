@@ -28,7 +28,7 @@ draft: false
 
 完整的 Vibe Coding 开发过程可以点击下面的链接查看。
 
-[Codex 开发过程](codex://threads/01a028b8-a114-7bb1-8e9e-ee30e8bb0d09)
+[Codex 开发过程](https://chatgpt.com/s/cx_6aae4d1dd5c88191914634f5e3d21315)
 
 # 4. 遇到的问题
 
